@@ -33,22 +33,9 @@ def world_population
                       
       records << record_hash
   
-      # puts "No.1": record[0]
-      # puts "Country": record[1]
-      # puts "Population": record[2]
-      # puts "Yearly Change": record[3]
-      # puts "Net Change": record[4]
-      # puts "Density (P/Km2)": record[5]
-      # puts "Land Area (Km2)": record[6]
-      # puts "Migrants": record[7]
-      # puts "Fertility Rate": record[8]
-      # puts "Median Age": record[9] 
-      # puts "Urban Population": record[10]
-      # puts "World Share": record[11] 
-      # puts "---------------------------"
-  
       i += 1
     end
+    
    records
    byebug
   end
