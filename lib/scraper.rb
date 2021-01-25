@@ -12,7 +12,7 @@ def world_population
     nations = parsed_page.css('table#popbycountry > tbody > tr').map(&:text).count
 
     i = 1
-    while i < total_countries
+    while i < nations
       record = parsed_page.css("table#popbycountry > tbody > tr[#{i}]").text
                                 
       record = record.split(" ")
