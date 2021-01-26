@@ -7,6 +7,6 @@
 # (0...all_nations).each do |index|
 #   puts "-------------------- index: #{index + 1} --------------------"
 #   puts "Records: #{records[index]}"
- 
+
 #   # byebug
 # end
