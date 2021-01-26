@@ -35,7 +35,7 @@
 ## Getting Started
 
 **To start *Web-Scraper*:**
-*To get a local copy up and running follow these simple example steps.*
+*Get a local copy up and running by following these simple steps.*
 
  - You need to have ruby installed on your machine
  - run command ``git clone git@github.com:SamArsanios/web-scraper.git`` to clone the repository
@@ -45,15 +45,15 @@
  - type in your terminal the command `` ruby scraper.rb ``
 
 
-### Run tests
+<!--### Run tests-->
 
- - Unit test (Rspec)
+ <!--- Unit test (Rspec)
 
  ![screenshot](./assets/images/test_results.png)
 
 To see the test results run the following command
 
-`rspec --format documentation`
+`rspec --format documentation`-->
 
 ## Author
 
