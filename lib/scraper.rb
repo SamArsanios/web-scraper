@@ -37,7 +37,7 @@ def world_population
     end
 
     population_stats
-   puts JSON.pretty_generate(population_stats)
+    puts JSON.pretty_generate(population_stats)
 #    byebug
   end
 
