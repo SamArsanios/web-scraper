@@ -31,12 +31,14 @@ def world_population
                       "Urban Population": record[10],
                       "World Share": record[11] }
                       
-      records << record_hash
+            population_stats << record_hash
   
       i += 1
     end
-    
-   records
-   byebug
+
+    population_stats
+   puts JSON.pretty_generate(population_stats)
+#    byebug
   end
-end
+
+world_population
