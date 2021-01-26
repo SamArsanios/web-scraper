@@ -36,6 +36,10 @@ def world_population
       i += 1
     end
 
+    CSV.open('population.csv', 'w') do |csv|
+        csv << population_stats
+    end
+
     population_stats
     puts JSON.pretty_generate(population_stats)
 #    byebug
