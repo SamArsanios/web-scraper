@@ -38,8 +38,8 @@
 *Get a local copy up and running by following these simple steps.*
 
  - You need to have ruby installed on your machine
- - run command ``git clone git@github.com:SamArsanios/web-scraper.git`` to clone the repository
- - run command ``bundle install``
+ - run command ``git clone https://github.com/SamArsanios/web-scraper.git`` to clone the repository
+ - run command ``bundle install`` 
  - go into the folder containing the project by typing ``cd web-scraper``
  - go into the folder containing the project by typing ``cd lib``
  - type in your terminal the command `` ruby scraper.rb ``
