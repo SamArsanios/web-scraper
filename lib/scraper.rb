@@ -32,9 +32,21 @@ def world_population
   end
   CSV.open('population.csv', 'w') do |csv|
     csv << population_stats
+    # puts CSV.generate_line(population_stats)
   end
+
   puts JSON.pretty_generate(population_stats)
   population_stats
 end
+
+def find_country_by_name(country_to_find)
+    down_country = country_to_find.downcase
+    world_population.select { |nation| nation[:Country].downcase == down_country }
+end
+  
 world_population
+
+puts find_country_by_name("nigeria")
+
+
 # rubocop:enable Metrics/MethodLength
