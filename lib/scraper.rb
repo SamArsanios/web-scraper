@@ -68,4 +68,3 @@ class Scraper
     select_country
   end
 end
-# puts find_country_by_name('nigeria')
