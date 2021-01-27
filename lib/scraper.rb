@@ -4,8 +4,8 @@ require 'HTTParty'
 require 'byebug'
 
 class Scraper
-  def initialize
-    unparsed_page = HTTParty.get('https://www.worldometers.info/world-population/')
+  def initialize(url)
+    unparsed_page = HTTParty.get(url)
     @parsed_page = Nokogiri::HTML(unparsed_page)
   end
 
@@ -65,6 +65,7 @@ class Scraper
     down_country = country_to_find.downcase
     select_country = world_population.select { |nation| nation[:Country].downcase == down_country }
     puts JSON.pretty_generate(select_country)
+    select_country
   end
 end
 # puts find_country_by_name('nigeria')
