@@ -1,4 +1,4 @@
-require_relative '../lib/scraper.rb'
+require_relative '../lib/scraper'
 
 scraper = Scraper.new
 run_app = scraper.world_population
