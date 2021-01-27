@@ -5,10 +5,11 @@
 > This is a project built to scrap current world population statistics from (https://www.worldometers.info/world-population/). The scraper gets the information from the website and displays the data in JSON format and also saves the data into a csv file. Here is what is being scraped from the website:
 
 **World Population Data**
+
 ```
 #Number
-#Country 
-#Population 
+#Country
+#Population
 #Yearly Change
 #Net Change
 #Density(p/km2)
@@ -19,6 +20,7 @@
 #Urban Population
 #World Share
 ```
+
 <!--### The original Web site-->
 
 <!--![screenshot](./assets/images/page.png)-->
@@ -30,26 +32,29 @@
 ## Built With
 
 ![Ruby](https://img.shields.io/badge/ruby-%23CC342D.svg?&style=for-the-badge&logo=ruby&logoColor=white)
+
 - Gems used: nokogiri,byebug,HTTParty
 
 ## Getting Started
 
-**To start *Web-Scraper*:**
-*Get a local copy up and running by following these simple steps.*
+**To start _Web-Scraper_:**
+_Get a local copy up and running by following these simple steps._
 
- - You need to have ruby installed on your machine
- - run command ``git clone https://github.com/SamArsanios/web-scraper.git`` to clone the repository
- - run command ``bundle install`` 
- - go into the folder containing the project by typing ``cd web-scraper``
- - go into the folder containing the project by typing ``cd lib``
- - type in your terminal the command `` ruby scraper.rb ``
+- You need to have ruby installed on your machine
+- run command `git clone https://github.com/SamArsanios/web-scraper.git` to clone the repository
+- run command `bundle install`
+- go into the folder containing the project by typing `cd web-scraper`
+- go into the folder containing the project by typing `cd bin`
+- type in your terminal the command `ruby main.rb`
 
+### Run tests
 
-<!--### Run tests-->
+- Unit test (Rspec)
 
- <!--- Unit test (Rspec)
-
- ![screenshot](./assets/images/test_results.png)
+- go into the folder containing the project by typing `cd web-scraper`
+- go into the folder containing the project by typing `cd spec`
+- type in your terminal the command `rspec scraper_spec.rb`
+<!-- ![screenshot](./assets/images/test_results.png)
 
 To see the test results run the following command
 
@@ -75,4 +80,3 @@ Give a ⭐️ if you like this project!
 ## Acknowledgments
 
 Hat tip to Microverse for their `README` template.
-
