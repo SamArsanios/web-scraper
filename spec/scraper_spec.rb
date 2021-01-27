@@ -1,12 +1,23 @@
 require_relative '../lib/scraper'
 
-describe '#world_population' do
-  let(:hash) do
-    { Number: 1, Country: 'China', Population: 1_439_323_776, YearlyChange: 0.39, NetChange: 5_540_090,
-      Density: 153, LandArea: 9_388_211, Migrants: 348_399, FertilityRate: 1.69, MedianAge: 38,
-      UrbanPopulation: 60.8, WorldShare: 18.5 }
+describe Scraper do
+  let(:scraper) {Scraper.new("https://www.worldometers.info/world-population/")}
+
+    describe '#world_population' do
+      it 'Returns Array of hashes from the table' do
+      expect(scraper.world_population).to be_an(Array)
+      end
+    end
+
+    describe '#all_nations' do
+      it 'Returns an integer' do
+        expect(Integer).to be_truthy 
+      end
+    end
+
+    describe '#find_country_by_name' do
+    it 'Returns a Hash' do
+      expect(scraper.find_country_by_name('Turkey')).to be_an(Array) 
+    end
   end
-  it 'Returns Array of hashes from the table' do
-    expect(hash).to be_an(Hash)
   end
-end
