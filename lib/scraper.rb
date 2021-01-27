@@ -4,15 +4,36 @@ require 'open-uri'
 require 'HTTParty'
 require 'byebug'
 
-def world_population
-  unparsed_page = HTTParty.get('https://www.worldometers.info/world-population/')
-  parsed_page = Nokogiri::HTML(unparsed_page)
-  population_stats = []
+class Scraper
+    
+  def initialize
+    unparsed_page = HTTParty.get('https://www.worldometers.info/world-population/')
+    @parsed_page = Nokogiri::HTML(unparsed_page)
+  end
 
-  nations = parsed_page.css('table#popbycountry > tbody > tr').map(&:text).count
-  i = 1
-  while i < nations
-    record = parsed_page.css("table#popbycountry > tbody > tr[#{i}]").text
+  def world_population
+    population_stats = []
+    i = 1
+    while i < all_nations(@parsed_page)
+      population_stats << save_record(@parsed_page, i)
+      i += 1
+    end
+
+    CSV.open('population.csv', 'w') do |csv|
+      csv << population_stats
+      # puts CSV.generate_line(population_stats)
+    end
+
+    puts JSON.pretty_generate(population_stats)
+    population_stats
+  end
+
+  def all_nations(parsed_page)
+    parsed_page.css('table#popbycountry > tbody > tr').map(&:text).count
+  end
+
+  def save_record(parsed_page, index)
+    record = parsed_page.css("table#popbycountry > tbody > tr[#{index}]").text
     record = record.split(' ')
     record.delete '%'
     record_hash = { "Number": record[0],
@@ -27,26 +48,16 @@ def world_population
                     "Median Age": record[9],
                     "Urban Population": record[10],
                     "World Share": record[11] }
-    population_stats << record_hash
-    i += 1
-  end
-  CSV.open('population.csv', 'w') do |csv|
-    csv << population_stats
-    # puts CSV.generate_line(population_stats)
   end
 
-  puts JSON.pretty_generate(population_stats)
-  population_stats
-end
-
-def find_country_by_name(country_to_find)
+  def find_country_by_name(country_to_find)
     down_country = country_to_find.downcase
-    world_population.select { |nation| nation[:Country].downcase == down_country }
+    select_country = world_population.select { |nation| nation[:Country].downcase == down_country }
+    puts JSON.pretty_generate(select_country)
+  end
 end
-  
-world_population
+# world_population
 
-puts find_country_by_name("nigeria")
-
+# puts find_country_by_name('nigeria')
 
 # rubocop:enable Metrics/MethodLength
