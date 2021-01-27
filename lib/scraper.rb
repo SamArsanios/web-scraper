@@ -12,20 +12,15 @@ class Scraper
   end
 
   def world_population
-    population_stats = []
+    @population_stats = []
     i = 1
     while i < all_nations(@parsed_page)
-      population_stats << save_record(@parsed_page, i)
+      @population_stats << save_record(@parsed_page, i)
       i += 1
     end
-
-    CSV.open('population.csv', 'w') do |csv|
-      csv << population_stats
-      # puts CSV.generate_line(population_stats)
-    end
-
-    puts JSON.pretty_generate(population_stats)
-    population_stats
+    @population_stats
+    save_to_csv
+    parse_to_json
   end
 
   def all_nations(parsed_page)
@@ -48,6 +43,16 @@ class Scraper
                     "Median Age": record[9],
                     "Urban Population": record[10],
                     "World Share": record[11] }
+  end
+
+  def save_to_csv
+    CSV.open('population.csv', 'w') do |csv|
+      csv << @population_stats
+    end
+  end
+
+  def parse_to_json
+    puts JSON.pretty_generate(@population_stats)
   end
 
   def find_country_by_name(country_to_find)
