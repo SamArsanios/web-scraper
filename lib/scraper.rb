@@ -60,13 +60,6 @@ class Scraper
     end
   end
 
-  # CSV.open('bin/data.csv', 'w') do |csv|
-  #   csv << headers
-  #   arr_csv.each do |rec|
-  #     csv << rec.values
-  #   end
-  # end
-  
   # Method that outputs the scrapped data in JSON format
   def parse_to_json
     puts JSON.pretty_generate(@population_stats)
