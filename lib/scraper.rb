@@ -13,7 +13,8 @@ class Scraper
   def world_population
     @population_stats = []
     i = 1
-    while i < all_nations(@parsed_page)
+    count = all_nations(@parsed_page)
+    while i < count
       @population_stats << save_record(@parsed_page, i)
       i += 1
     end
@@ -50,11 +51,22 @@ class Scraper
 
   # Method to save scrapped data into a csv file
   def save_to_csv
+    header = @population_stats[0].keys
     CSV.open('population.csv', 'w') do |csv|
-      csv << @population_stats
+      csv << header
+      @population_stats.each do |record|
+        csv << record.values
+      end
     end
   end
 
+  # CSV.open('bin/data.csv', 'w') do |csv|
+  #   csv << headers
+  #   arr_csv.each do |rec|
+  #     csv << rec.values
+  #   end
+  # end
+  
   # Method that outputs the scrapped data in JSON format
   def parse_to_json
     puts JSON.pretty_generate(@population_stats)
