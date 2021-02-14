@@ -66,6 +66,7 @@ To see the test results run the following command
 
 - Github: [@SamArsanios](https://github.com/SamArsanios)
 - Twitter: [@SamArsanios](https://twitter.com/SamArsanios)
+- LinkedIn: [Samson](https://www.linkedin.com/in/samson-kibrom/)
 
 ## 🤝 Contributing
 
