@@ -33,7 +33,7 @@
 
 ![Ruby](https://img.shields.io/badge/ruby-%23CC342D.svg?&style=for-the-badge&logo=ruby&logoColor=white)
 
-- Gems used: nokogiri,byebug,HTTParty
+- Gems used: nokogiri, byebug, HTTParty
 
 ## Getting Started
 
