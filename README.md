@@ -37,7 +37,6 @@
 
 ## Getting Started
 
-**To start _Web-Scraper_:**
 _Get a local copy up and running by following these simple steps._
 
 - You need to have ruby installed on your machine
